@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cálculo - Expert Net</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖨️ Expert Net - Sistema de Cálculo</h1>
+            <p>Cálculo automático de serviços gráficos</p>
+        </header>
+
+        <div class="services-grid">
+            <!-- IMPRESSÃO PB -->
+            <div class="service-card">
+                <h3>IMPRESSÃO PB (UNID.)</h3>
+                <p class="price">R$ 1,00 cada</p>
+                <input type="number" id="impressaoPB" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- CURRÍCULUM PARA ELABORAR -->
+            <div class="service-card">
+                <h3>CURRÍCULUM PARA ELABORAR</h3>
+                <p class="price">R$ 4,00 cada</p>
+                <input type="number" id="curriculoElaborar" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- CURRÍCULUM NO SISTEMA P/ALTERAR -->
+            <div class="service-card">
+                <h3>CURRÍCULUM NO SISTEMA P/ALTERAR</h3>
+                <p class="price">R$ 2,00 cada</p>
+                <input type="number" id="curriculoAlterar" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- OFÍCIOS E DECLARAÇÕES -->
+            <div class="service-card">
+                <h3>OFÍCIOS E DECLARAÇÕES</h3>
+                <p class="price">R$ 10,00 cada</p>
+                <input type="number" id="oficiosDeclaracoes" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- DECLARAÇÕES DE COMPRA/VENDA -->
+            <div class="service-card">
+                <h3>DECLARAÇÕES DE COMPRA/VENDA</h3>
+                <p class="price">R$ 20,00 cada</p>
+                <input type="number" id="declaracoesCompraVenda" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- CONTRATOS DE LOCAÇÃO -->
+            <div class="service-card">
+                <h3>CONTRATOS DE LOCAÇÃO</h3>
+                <p class="price">R$ 6,00 cada</p>
+                <input type="number" id="contratosLocacao" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- DIGITAÇÃO -->
+            <div class="service-card">
+                <h3>DIGITAÇÃO (UNIDADE)</h3>
+                <p class="price">R$ 4,00 cada</p>
+                <input type="number" id="digitacao" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- EMISSÃO DE BOLETOS -->
+            <div class="service-card">
+                <h3>EMISSÃO DE BOLETOS</h3>
+                <p class="price">R$ 2,00 cada</p>
+                <input type="number" id="emissaoBoletos" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- PLASTIFICAÇÃO RG e CPF -->
+            <div class="service-card">
+                <h3>PLASTIFICAÇÃO RG e CPF</h3>
+                <p class="price">R$ 2,50 cada</p>
+                <input type="number" id="plastificacaoRgCpf" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- PLASTIFICAÇÃO FOLHA INTEIRA -->
+            <div class="service-card">
+                <h3>PLASTIFICAÇÃO FOLHA INTEIRA</h3>
+                <p class="price">R$ 5,00 cada</p>
+                <input type="number" id="plastificacaoFolha" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- IMPRESSÃO FOTO PAPEL FOTOG -->
+            <div class="service-card">
+                <h3>IMPRESSÃO FOTO PAPEL FOTOG</h3>
+                <p class="price">R$ 6,00 por folha</p>
+                <input type="number" id="fotoPapelFotog" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- IMPRESSÃO FOTO PAPEL ADESIVO -->
+            <div class="service-card">
+                <h3>IMPRESSÃO FOTO PAPEL ADESIVO</h3>
+                <p class="price">R$ 7,00 por folha</p>
+                <input type="number" id="fotoPapelAdesivo" placeholder="Quantidade" min="0">
+            </div>
+
+            <!-- FOLHA CORRIDA OU CRIMINAL -->
+            <div class="service-card">
+                <h3>FOLHA CORRIDA OU CRIMINAL</h3>
+                <p class="price">R$ 3,00 cada</p>
+                <input type="number" id="folhaCorrida" placeholder="Quantidade" min="0">
+            </div>
+        </div>
+
+        <div class="calculation-section">
+            <button id="btnCalcular" class="btn-calculate">🧮 Calcular Total</button>
+            
+            <div id="resultado" class="result-container">
+                <h3>📋 Resumo do Orçamento</h3>
+                <div id="resultItems" class="result-items">
+                    <!-- Itens serão gerados aqui -->
+                </div>
+                <div class="total-section">
+                    <span class="total-label">TOTAL:</span>
+                    <span id="valorTotal" class="total-value">R$ 0,00</span>
+                </div>
+            </div>
+
+            <div id="erro" class="error-message"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
