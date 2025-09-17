@@ -1,6 +1,7 @@
 class CalculadoraServicos {
     constructor() {
         this.precos = {
+            xerox: 0.70,
             impressaoPB: 1.00,
             curriculoElaborar: 4.00,
             curriculoAlterar: 2.00,
@@ -17,6 +18,7 @@ class CalculadoraServicos {
         };
 
         this.nomesServicos = {
+            xerox: "XEROX (CÓPIAS)",
             impressaoPB: "IMPRESSÃO PB (UNID.)",
             curriculoElaborar: "CURRÍCULUM PARA ELABORAR",
             curriculoAlterar: "CURRÍCULUM NO SISTEMA P/ALTERAR",
@@ -43,15 +45,31 @@ class CalculadoraServicos {
         this.erro = document.getElementById('erro');
 
         this.btnCalcular.addEventListener('click', () => this.calcular());
+        this.configurarEventosInput();
+    }
+
+    configurarEventosInput() {
+        const inputs = document.querySelectorAll('.service-input');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                this.erro.style.display = 'none';
+            });
+            
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    this.calcular();
+                }
+            });
+        });
     }
 
     calcular() {
         let total = 0;
         const itens = [];
 
-        // Calcular cada serviço
         for (const [servico, preco] of Object.entries(this.precos)) {
-            const quantidade = parseInt(document.getElementById(servico).value) || 0;
+            const input = document.getElementById(servico);
+            const quantidade = parseInt(input.value) || 0;
             
             if (quantidade > 0) {
                 const valor = quantidade * preco;
@@ -60,63 +78,92 @@ class CalculadoraServicos {
                 itens.push({
                     nome: this.nomesServicos[servico],
                     quantidade: quantidade,
-                    valor: valor
+                    valor: valor,
+                    input: input
                 });
             }
         }
 
-        // Validar se há serviços selecionados
         if (itens.length === 0) {
-            this.mostrarErro('Selecione pelo menos um serviço para calcular.');
+            this.mostrarErro('⚠️ Selecione pelo menos um serviço para calcular.');
             this.resultado.style.display = 'none';
             return;
         }
 
-        // Esconder mensagem de erro se houver serviços
         this.erro.style.display = 'none';
-
-        // Exibir resultados
         this.exibirResultados(itens, total);
     }
 
     exibirResultados(itens, total) {
         this.resultItems.innerHTML = '';
+        this.resultado.style.display = 'block';
+
+        itens.sort((a, b) => b.valor - a.valor);
 
         itens.forEach(item => {
             const div = document.createElement('div');
             div.className = 'result-item';
             
             div.innerHTML = `
-                <span class="service-name">${item.nome} (${item.quantidade} un.)</span>
-                <span class="service-value">R$ ${item.valor.toFixed(2)}</span>
+                <span class="service-name">${item.nome}</span>
+                <div class="item-details">
+                    <span class="item-quantity">${item.quantidade} un.</span>
+                    <span class="service-value">R$ ${item.valor.toFixed(2)}</span>
+                </div>
             `;
             
             this.resultItems.appendChild(div);
         });
 
         this.valorTotal.textContent = `R$ ${total.toFixed(2)}`;
-        this.resultado.style.display = 'block';
+        
+        // Scroll para o resultado
+        this.resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     mostrarErro(mensagem) {
         this.erro.textContent = mensagem;
         this.erro.style.display = 'block';
-    }
-
-    formatarMoeda(valor) {
-        return valor.toFixed(2).replace('.', ',');
+        this.erro.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
 
-// Inicializar a calculadora quando o documento carregar
+// Inicializar quando o documento carregar
 document.addEventListener('DOMContentLoaded', () => {
     new CalculadoraServicos();
 });
 
-// Limpar mensagens de erro ao digitar nos campos
-const inputs = document.querySelectorAll('input[type="number"]');
-inputs.forEach(input => {
-    input.addEventListener('input', () => {
-        document.getElementById('erro').style.display = 'none';
-    });
-});
+// Adicionar estilos para detalhes do item
+const style = document.createElement('style');
+style.textContent = `
+    .item-details {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .item-quantity {
+        color: #718096;
+        font-weight: 500;
+        font-size: 0.9em;
+    }
+    
+    @media (max-width: 480px) {
+        .item-details {
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+        }
+        
+        .result-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .item-details {
+            align-items: flex-start;
+        }
+    }
+`;
+document.head.appendChild(style);
