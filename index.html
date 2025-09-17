@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Cálculo - Expert Net</title>
+    <title>Expert Net - Sistema de Cálculo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,95 +14,89 @@
         </header>
 
         <div class="services-grid">
-            <!-- IMPRESSÃO PB -->
+            <!-- SERVIÇOS -->
+            <div class="service-card">
+                <h3>XEROX (CÓPIAS)</h3>
+                <p class="price">R$ 0,70 cada</p>
+                <input type="number" id="xerox" placeholder="Quantidade" min="0" class="service-input">
+            </div>
+
             <div class="service-card">
                 <h3>IMPRESSÃO PB (UNID.)</h3>
                 <p class="price">R$ 1,00 cada</p>
-                <input type="number" id="impressaoPB" placeholder="Quantidade" min="0">
+                <input type="number" id="impressaoPB" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- CURRÍCULUM PARA ELABORAR -->
             <div class="service-card">
                 <h3>CURRÍCULUM PARA ELABORAR</h3>
                 <p class="price">R$ 4,00 cada</p>
-                <input type="number" id="curriculoElaborar" placeholder="Quantidade" min="0">
+                <input type="number" id="curriculoElaborar" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- CURRÍCULUM NO SISTEMA P/ALTERAR -->
             <div class="service-card">
                 <h3>CURRÍCULUM NO SISTEMA P/ALTERAR</h3>
                 <p class="price">R$ 2,00 cada</p>
-                <input type="number" id="curriculoAlterar" placeholder="Quantidade" min="0">
+                <input type="number" id="curriculoAlterar" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- OFÍCIOS E DECLARAÇÕES -->
             <div class="service-card">
                 <h3>OFÍCIOS E DECLARAÇÕES</h3>
                 <p class="price">R$ 10,00 cada</p>
-                <input type="number" id="oficiosDeclaracoes" placeholder="Quantidade" min="0">
+                <input type="number" id="oficiosDeclaracoes" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- DECLARAÇÕES DE COMPRA/VENDA -->
             <div class="service-card">
                 <h3>DECLARAÇÕES DE COMPRA/VENDA</h3>
                 <p class="price">R$ 20,00 cada</p>
-                <input type="number" id="declaracoesCompraVenda" placeholder="Quantidade" min="0">
+                <input type="number" id="declaracoesCompraVenda" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- CONTRATOS DE LOCAÇÃO -->
             <div class="service-card">
                 <h3>CONTRATOS DE LOCAÇÃO</h3>
                 <p class="price">R$ 6,00 cada</p>
-                <input type="number" id="contratosLocacao" placeholder="Quantidade" min="0">
+                <input type="number" id="contratosLocacao" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- DIGITAÇÃO -->
             <div class="service-card">
                 <h3>DIGITAÇÃO (UNIDADE)</h3>
                 <p class="price">R$ 4,00 cada</p>
-                <input type="number" id="digitacao" placeholder="Quantidade" min="0">
+                <input type="number" id="digitacao" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- EMISSÃO DE BOLETOS -->
             <div class="service-card">
                 <h3>EMISSÃO DE BOLETOS</h3>
                 <p class="price">R$ 2,00 cada</p>
-                <input type="number" id="emissaoBoletos" placeholder="Quantidade" min="0">
+                <input type="number" id="emissaoBoletos" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- PLASTIFICAÇÃO RG e CPF -->
             <div class="service-card">
                 <h3>PLASTIFICAÇÃO RG e CPF</h3>
                 <p class="price">R$ 2,50 cada</p>
-                <input type="number" id="plastificacaoRgCpf" placeholder="Quantidade" min="0">
+                <input type="number" id="plastificacaoRgCpf" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- PLASTIFICAÇÃO FOLHA INTEIRA -->
             <div class="service-card">
                 <h3>PLASTIFICAÇÃO FOLHA INTEIRA</h3>
                 <p class="price">R$ 5,00 cada</p>
-                <input type="number" id="plastificacaoFolha" placeholder="Quantidade" min="0">
+                <input type="number" id="plastificacaoFolha" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- IMPRESSÃO FOTO PAPEL FOTOG -->
             <div class="service-card">
                 <h3>IMPRESSÃO FOTO PAPEL FOTOG</h3>
                 <p class="price">R$ 6,00 por folha</p>
-                <input type="number" id="fotoPapelFotog" placeholder="Quantidade" min="0">
+                <input type="number" id="fotoPapelFotog" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- IMPRESSÃO FOTO PAPEL ADESIVO -->
             <div class="service-card">
                 <h3>IMPRESSÃO FOTO PAPEL ADESIVO</h3>
                 <p class="price">R$ 7,00 por folha</p>
-                <input type="number" id="fotoPapelAdesivo" placeholder="Quantidade" min="0">
+                <input type="number" id="fotoPapelAdesivo" placeholder="Quantidade" min="0" class="service-input">
             </div>
 
-            <!-- FOLHA CORRIDA OU CRIMINAL -->
             <div class="service-card">
                 <h3>FOLHA CORRIDA OU CRIMINAL</h3>
                 <p class="price">R$ 3,00 cada</p>
-                <input type="number" id="folhaCorrida" placeholder="Quantidade" min="0">
+                <input type="number" id="folhaCorrida" placeholder="Quantidade" min="0" class="service-input">
             </div>
         </div>
 
@@ -112,7 +106,7 @@
             <div id="resultado" class="result-container">
                 <h3>📋 Resumo do Orçamento</h3>
                 <div id="resultItems" class="result-items">
-                    <!-- Itens serão gerados aqui -->
+                    <div class="empty-message">Nenhum serviço selecionado</div>
                 </div>
                 <div class="total-section">
                     <span class="total-label">TOTAL:</span>
